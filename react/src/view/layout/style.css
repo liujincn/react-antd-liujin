@@ -1,0 +1,66 @@
+/* sider */
+.logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
+
+.ant-menu-inline-collapsed .ant-menu-submenu-title span span{  opacity: 0}
+.ant-menu-inline-collapsed .ant-menu-item a span{  opacity: 0}
+
+/* header */
+.top{position: fixed; width: 100%;background: #fff;}
+.top .header {
+ border-bottom: #d8dce5 1px solid;
+     height: 50px;
+}
+
+.top .header .trigger {
+     float: left;
+    font-size: 18px;
+    line-height: 50px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+     margin-top: 2px;
+}
+.top .header .trigger:hover {
+    color: #1890ff;
+}
+.ant-breadcrumb{ float: left; }
+.ant-breadcrumb span{line-height: 50px; font-weight: bold; font-size: 14px;}
+ /* tag */
+.top .tag{ float: left;width: 100%; margin-top: 5px; border-bottom: #d8dce5 1px solid;}
+.top .tag ul{ list-style: none; padding: 0; margin: 0 0 0 24px}
+.top .tag li{ float: left; position: relative; padding:5px 25px 5px 15px; border: #d8d8d8 1px solid; border-bottom: none; margin: 0 10px 0 0;}
+.top .tag li a{ color: #aaa}
+.top .tag li span{ position: absolute; right: 8px;top:10px; color: #aaa}
+.top .tag li span:hover{ color: #000}
+.top .tag li.is-active{ background: #1890ff; }
+.top .tag li.is-active a,.top .tag li.is-active span{color: #fff}
+.top .tag li.is-active span:hover{ color: #ccc}
+
+ /* 右键 */
+.menuBox {
+  list-style: none;
+  margin: 0;
+  background: #fff;
+  z-index: 999;
+  position: absolute;
+  padding: 5px 0;
+  border: 1px solid #cccccc;
+  font-size: 12px;
+  font-weight: 400;
+  color: #333;
+  box-shadow: 2px 1px 6px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  
+  }
+ 
+  .menuBox li {
+    margin: 0;
+    padding: 7px 16px;
+     
+}
+.menuBox li:hover{    background: #e1e6ea; cursor: pointer;
+}

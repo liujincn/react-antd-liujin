@@ -1,0 +1,13 @@
+
+.svg-icon{
+       margin-right: 10px; float: left; margin-top: 2px;
+}
+.svg-icon  svg{
+    overflow: hidden;
+    font-size: 14px;
+    min-width: 14px;
+    width: 1em;
+    height: 1em;
+    fill: #fff;
+
+}
