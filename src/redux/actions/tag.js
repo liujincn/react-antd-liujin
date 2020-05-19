@@ -16,5 +16,11 @@ const closeAllTag = data => {
     data
   };
 };
+const closeLeftTag = data => {
+  return {
+    type: 'closeLeftTag',
+    data
+  };
+};
 
-export { addTag, closeTag, closeAllTag }
+export { addTag, closeTag, closeAllTag, closeLeftTag }

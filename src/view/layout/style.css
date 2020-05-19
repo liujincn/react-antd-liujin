@@ -32,9 +32,9 @@
  /* tag */
 .top .tag{ float: left;width: 100%; margin-top: 5px; border-bottom: #d8dce5 1px solid;}
 .top .tag ul{ list-style: none; padding: 0; margin: 0 0 0 24px}
-.top .tag li{ float: left; position: relative; padding:5px 25px 5px 15px; border: #d8d8d8 1px solid; border-bottom: none; margin: 0 10px 0 0;}
+.top .tag li{ float: left; position: relative; padding:5px 20px; border: #d8d8d8 1px solid; border-bottom: none; margin: 0 10px 0 0;}
 .top .tag li a{ color: #aaa}
-.top .tag li span{ position: absolute; right: 8px;top:10px; color: #aaa}
+.top .tag li span{ position: absolute; right: 5px;top:10px; color: #aaa}
 .top .tag li span:hover{ color: #000}
 .top .tag li.is-active{ background: #1890ff; }
 .top .tag li.is-active a,.top .tag li.is-active span{color: #fff}
@@ -62,5 +62,4 @@
     padding: 7px 16px;
      
 }
-.menuBox li:hover{    background: #e1e6ea; cursor: pointer;
-}
+.menuBox li:hover{ background: #e1e6ea; cursor: pointer;}

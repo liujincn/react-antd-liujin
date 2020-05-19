@@ -24,8 +24,11 @@ const tagList = (state = initialState, action) => {
       break;
 
     case 'closeAllTag':
-      console.log(initialState)
       return initialState
+      break;
+    case 'closeLeftTag':
+      console.log(action.data)
+      return action.data
       break;
 
     default:

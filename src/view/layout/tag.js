@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 import menus from '@/router/menus';
-import { addTag, closeTag, closeAllTag } from '@/redux/actions/tag';
+import { addTag, closeTag, closeAllTag, closeLeftTag } from '@/redux/actions/tag';
 import {
   CloseOutlined,
 } from '@ant-design/icons';
@@ -11,14 +11,15 @@ class Tag extends Component {
   state = {
     visible: false,
     left: 0,
-    top: 0
+    top: 0,
+    position: 0
 
   }
 
 
   onContextMenu = (e, index, item) => {
     e.preventDefault();
-
+    this.setState({ position: index })
     if (index === 0) {
       return false
     }
@@ -31,6 +32,15 @@ class Tag extends Component {
     this.setState({ visible: false })
     this.props.closeAllTag([])
     this.props.history.replace('/');
+  }
+  closeLeftTag () {
+    this.props.tagList.splice(1, this.state.position - 1)
+    this.setState({ visible: false })
+  }
+  closeRightTag () {
+    this.props.tagList.splice(this.state.position + 1)
+    this.setState({ visible: false })
+    this.props.history.replace(this.props.tagList[this.state.position].path);
   }
 
   closeTag (path) {
@@ -48,7 +58,7 @@ class Tag extends Component {
       this.props.history.replace(newTag[newTag.length - 1].path);
     }
   }
-
+  //  根据路由增加
   searchPath = (menus, pathname) => {
     const res = []
     const flatData = (menus) => {
@@ -73,7 +83,7 @@ class Tag extends Component {
 
   render () {
     const { tagList, location } = this.props;
-    const { visible, left, top } = this.state;
+    const { visible, left, top, position } = this.state;
 
     return (
       <div>
@@ -84,7 +94,6 @@ class Tag extends Component {
 
                 <Link to={item.path}>{item.title}</Link>{index > 0 &&
                   <CloseOutlined onClick={() => this.closeTag(item.path)} style={{ fontSize: 12 }} />}
-                {index}
               </li>
             )
             }
@@ -93,8 +102,8 @@ class Tag extends Component {
         {visible ?
           <ul className="menuBox" style={{ left, top }}>
             <li onClick={() => this.closeAllTag()}>关闭所有</li>
-            <li>关闭左边</li>
-            <li>关闭右边</li>
+            <li onClick={() => this.closeLeftTag()}>关闭左边</li>
+            <li onClick={() => this.closeRightTag()}>关闭右边</li>
           </ul> : null}
       </div>
     );
@@ -111,6 +120,12 @@ const mapDispatchToProps = dispatch => ({
   },
   closeAllTag: data => {
     dispatch(closeAllTag(data));
+  },
+  closeLeftTag: data => {
+    dispatch(closeLeftTag(data));
+  },
+  closeRightTag: data => {
+    dispatch(closeRightTag(data));
   }
 
 })
